@@ -1,10 +1,13 @@
-## Benjamin Ye (Golf0ned)
-
-Check my [website](https://golf0ned.com/) for more info :)
-
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api?username=golf0ned&show_icons=true&theme=material-palenight" />
-</a>
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img height=200 align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=golf0ned&layout=compact&langs_count=8&card_width=320&theme=material-palenight" />
-</a>
+## Top Languages
+```
+C++          [██████████░░░░░░░░░░] 49.42%
+Python       [████░░░░░░░░░░░░░░░░] 21.43%
+TypeScript   [██░░░░░░░░░░░░░░░░░░] 8.35%
+Rust         [█░░░░░░░░░░░░░░░░░░░] 5.00%
+Lua          [█░░░░░░░░░░░░░░░░░░░] 4.28%
+HTML         [█░░░░░░░░░░░░░░░░░░░] 2.80%
+JavaScript   [░░░░░░░░░░░░░░░░░░░░] 2.14%
+CSS          [░░░░░░░░░░░░░░░░░░░░] 1.67%
+Shell        [░░░░░░░░░░░░░░░░░░░░] 1.43%
+C            [░░░░░░░░░░░░░░░░░░░░] 1.34%
+```
