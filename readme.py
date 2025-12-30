@@ -82,10 +82,10 @@ def generate_readme(username: str, token: str, path: str = "README.md"):
 
         readme.write("## 📊 Stats\n")
         readme.write("```\n")
-        readme.write(f"Total Stars:    {stats["stars"]}\n")
-        readme.write(f"Total Commits:  {stats["commits"]}\n")
-        readme.write(f"Total PRs:      {stats["prs"]}\n")
-        readme.write(f"Contributed to: {stats["contributed_to"]}\n")
+        readme.write(f"Total Stars:    {stats['stars']}\n")
+        readme.write(f"Total Commits:  {stats['commits']}\n")
+        readme.write(f"Total PRs:      {stats['prs']}\n")
+        readme.write(f"Contributed to: {stats['contributed_to']}\n")
         readme.write("```\n")
 
         readme.write("\n")
