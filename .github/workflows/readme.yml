@@ -28,7 +28,7 @@ jobs:
 
       - name: Generate README
         env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python readme.py
 
       - name: Commit README changes

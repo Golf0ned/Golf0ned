@@ -86,6 +86,6 @@ def percent_bar(percent: float, width: int = 20):
 
 if __name__ == "__main__":
     username = "golf0ned"
-    token = os.getenv("PERSONAL_TOKEN", "")
+    token = os.getenv("GITHUB_TOKEN", "")
 
     generate_readme(username, token)
