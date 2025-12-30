@@ -1,3 +1,11 @@
+## 📊 Stats
+```
+Total Stars:    58
+Total Commits:  926
+Total PRs:      41
+Contributed to: 2
+```
+
 ## 💻 Top Languages
 ```
 C++          [██████████░░░░░░░░░░] 49.42%
