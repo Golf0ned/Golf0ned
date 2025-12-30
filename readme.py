@@ -79,6 +79,7 @@ def generate_readme(username: str, token: str, path: str = "README.md"):
     languages = get_languages(username, token)
 
     with open(path, "w", encoding="utf-8") as readme:
+        readme.write(f"_Last updated: {datetime.now()}_\n")
 
         readme.write("## 📊 Stats\n")
         readme.write("```\n")
