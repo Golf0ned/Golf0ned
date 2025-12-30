@@ -9,7 +9,7 @@ def generate_readme(username: str, token: str, path: str = "README.md"):
 
     total_size = sum(size for _, size in languages)
     with open(path, "w", encoding="utf-8") as readme:
-        readme.write("## Top Languages\n")
+        readme.write("## 💻 Top Languages\n")
         readme.write("```\n")
         for lang, size in list(languages)[:10]:
             percent = (size / total_size) * 100 if total_size > 0 else 0
@@ -86,6 +86,6 @@ def percent_bar(percent: float, width: int = 20):
 
 if __name__ == "__main__":
     username = "golf0ned"
-    token = os.getenv("GITHUB_TOKEN", "")
+    token = os.getenv("PERSONAL_TOKEN", "")
 
     generate_readme(username, token)
