@@ -9,7 +9,10 @@ query userInfo($login: String!) {{
   user(login: $login) {{
     name
     login
-    commits: contributionsCollection(from: "{datetime.now().year}-01-01T00:00:00Z") {{
+    commitsThisYear: contributionsCollection(from: "{datetime.now().year}-01-01T00:00:00Z") {{
+      totalCommitContributions
+    }}
+    commitsAllTime: contributionsCollection {{
       totalCommitContributions
     }}
     reviews: contributionsCollection {{
@@ -83,10 +86,10 @@ def generate_readme(username: str, token: str, path: str = "README.md"):
 
         readme.write("## 📊 Stats\n")
         readme.write("```\n")
-        readme.write(f"Total Stars:    {stats['stars']}\n")
-        readme.write(f"Total Commits:  {stats['commits']}\n")
-        readme.write(f"Total PRs:      {stats['prs']}\n")
-        readme.write(f"Contributed to: {stats['contributed_to']}\n")
+        readme.write(f"Total Stars:     {stats['stars']}\n")
+        readme.write(f"Total Commits:   {stats['commits_all_time']} ({stats['commits_this_year']} this year) \n")
+        readme.write(f"Total PRs:       {stats['prs']}\n")
+        readme.write(f"Contributed to:  {stats['contributed_to']}\n")
         readme.write("```\n")
 
         readme.write("\n")
@@ -119,7 +122,8 @@ def get_stats(username: str, token: str):
     for repository in data["repositories"]["nodes"]:
         stats["stars"] = stats.get("stars", 0) + repository["stargazers"]["totalCount"]
 
-    stats["commits"] = data["commits"]["totalCommitContributions"]
+    stats["commits_this_year"] = data["commitsThisYear"]["totalCommitContributions"]
+    stats["commits_all_time"] = data["commitsAllTime"]["totalCommitContributions"]
     stats["prs"] = data["pullRequests"]["totalCount"]
     stats["contributed_to"] = data["repositoriesContributedTo"]["totalCount"]
 
