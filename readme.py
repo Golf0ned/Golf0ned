@@ -87,7 +87,9 @@ def generate_readme(username: str, token: str, path: str = "README.md"):
         readme.write("## 📊 Stats\n")
         readme.write("```\n")
         readme.write(f"Total Stars:     {stats['stars']}\n")
-        readme.write(f"Total Commits:   {stats['commits_all_time']} ({stats['commits_this_year']} this year) \n")
+        readme.write(
+            f"Total Commits:   {stats['commits_all_time']} ({stats['commits_this_year']} this year) \n"
+        )
         readme.write(f"Total PRs:       {stats['prs']}\n")
         readme.write(f"Contributed to:  {stats['contributed_to']}\n")
         readme.write("```\n")
@@ -118,9 +120,12 @@ def get_stats(username: str, token: str):
     data = response.json()["data"]["user"]
 
     stats = {}
+    stats["stars"] = 0
 
     for repository in data["repositories"]["nodes"]:
-        stats["stars"] = stats.get("stars", 0) + repository["stargazers"]["totalCount"]
+        if repository is None:
+            continue
+        stats["stars"] += repository["stargazers"]["totalCount"]
 
     stats["commits_this_year"] = data["commitsThisYear"]["totalCommitContributions"]
     stats["commits_all_time"] = data["commitsAllTime"]["totalCommitContributions"]
@@ -145,6 +150,9 @@ def get_languages(username: str, token: str):
 
     languages = {}
     for repo in data:
+        if repo is None:
+            continue
+
         edges = repo["languages"]["edges"]
         if not edges:
             continue
